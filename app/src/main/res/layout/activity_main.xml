@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mainPageVM"
+            type="com.cord.simpletest.viewModel.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtExchanges"
+                style="@style/txtIntersemibold20"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="Exchanges"
+                android:textAllCaps="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/lbl_exchanges" />
+
+            <View
+                android:id="@+id/viewEllipseThirty"
+                android:layout_width="@dimen/_9sdp"
+                android:layout_height="@dimen/_9sdp"
+                android:layout_gravity="start"
+                android:background="@drawable/rectangle_bg_amber_300_radius_4_5"
+                app:layout_constraintBottom_toTopOf="@+id/imageNotification"
+                app:layout_constraintEnd_toEndOf="@+id/imageNotification" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageNotification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/notification_ic"
+                app:layout_constraintBottom_toBottomOf="@+id/txtExchanges"
+                app:layout_constraintEnd_toStartOf="@+id/imageSettings"
+                app:layout_constraintTop_toTopOf="@+id/txtExchanges"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/notification_ic" />
+
+            <ImageView
+                android:id="@+id/imageSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_settings"
+                app:layout_constraintBottom_toBottomOf="@+id/txtExchanges"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtExchanges"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/img_settings" />
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchViewGroupOne"
+                android:layout_width="@dimen/_190sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_weight="0.5"
+                android:background="@drawable/rectangle_bg_black_900_0c_radius_20"
+                app:iconifiedByDefault="false"
+                app:layout_constraintStart_toStartOf="@+id/txtExchanges"
+                app:layout_constraintTop_toBottomOf="@+id/txtExchanges"
+                app:queryBackground="@android:color/transparent"
+                app:queryHint="@string/msg_search_cryptocu"
+                app:searchIcon="@drawable/img_search" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/etGroupNinetyOne"
+                style="@style/etRoundedOutline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.24"
+                android:background="@drawable/rectangle_border_black_900_4c_radius_20"
+                android:drawableStart="@drawable/img_menu"
+                android:drawablePadding="@dimen/_5sdp"
+                android:ellipsize="end"
+                android:hint="@string/lbl_filter"
+                android:inputType="text"
+                android:paddingStart="@dimen/_13sdp"
+                android:paddingTop="@dimen/_13sdp"
+                android:paddingEnd="@dimen/_13sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:singleLine="true"
+                android:textColorHint="@color/black_900_4c"
+                app:layout_constraintBottom_toBottomOf="@+id/searchViewGroupOne"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/searchViewGroupOne"
+                tools:ignore="Autofill" />
+
+
+            <TextView
+                android:id="@+id/txtCryptocurrency"
+                style="@style/txtIntersemibold20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/lbl_cryptocurrency"
+                app:layout_constraintStart_toStartOf="@+id/searchViewGroupOne"
+                app:layout_constraintTop_toBottomOf="@+id/searchViewGroupOne" />
+
+            <TextView
+                android:id="@+id/txtNFT"
+                style="@style/txtIntersemibold20_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_weight="0.21"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/lbl_nft"
+                app:layout_constraintBottom_toBottomOf="@+id/txtCryptocurrency"
+                app:layout_constraintStart_toEndOf="@+id/txtCryptocurrency"
+                app:layout_constraintTop_toTopOf="@+id/txtCryptocurrency" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/bitcoinCV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_2sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_20sdp"
+                app:layout_constraintStart_toStartOf="@+id/txtCryptocurrency"
+                app:layout_constraintTop_toBottomOf="@+id/txtCryptocurrency">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/green_A700_19">
+
+                    <ImageView
+                        android:id="@+id/imageClock"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_26sdp"
+                        android:src="@drawable/__icon__bitcoin_cryptocurrency_"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ContentDescription"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/txtBTC"
+                        style="@style/txtInterbold18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        app:layout_constraintStart_toEndOf="@+id/imageClock"
+                        app:layout_constraintTop_toTopOf="@+id/imageClock"
+                        tools:text="@string/lbl_btc" />
+
+                    <TextView
+                        android:id="@+id/txtBitcoin"
+                        style="@style/txtIntermedium13_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        app:layout_constraintStart_toStartOf="@+id/txtBTC"
+                        app:layout_constraintTop_toBottomOf="@+id/txtBTC"
+                        tools:text="@string/lbl_bitcoin" />
+
+
+                    <TextView
+                        android:id="@+id/txtPrice"
+                        style="@style/txtInterbold16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_20sdp"
+
+                        android:gravity="start"
+
+                        android:singleLine="true"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txtBTC"
+                        tools:text="@string/lbl_55_000_usd" />
+
+                    <TextView
+                        android:id="@+id/txtTwentyFive"
+                        style="@style/txtInterbold13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        app:layout_constraintEnd_toEndOf="@id/txtPrice"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPrice"
+                        tools:text="@string/lbl_2_5" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imageVector"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:layout_marginHorizontal="-2dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/tren_bacckground"
+                        android:scaleType="fitXY"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtBitcoin"
+                        tools:ignore="ContentDescription" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtTopCryptocurre"
+                style="@style/txtIntermedium18"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_weight="0.79"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/msg_top_cryptocurre"
+                app:layout_constraintStart_toStartOf="@+id/bitcoinCV"
+                app:layout_constraintTop_toBottomOf="@+id/bitcoinCV" />
+
+            <TextView
+                android:id="@+id/txtViewAll"
+                style="@style/txtIntermedium13_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_80sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:layout_weight="0.21"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/lbl_view_all"
+                android:textAppearance="@style/txtIntermedium13_2"
+                app:layout_constraintBottom_toBottomOf="@+id/txtTopCryptocurre"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtTopCryptocurre" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerMainPage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="@+id/txtTopCryptocurre"
+                app:layout_constraintTop_toBottomOf="@+id/txtTopCryptocurre"
+                tools:itemCount="5"
+                tools:listitem="@layout/row_main_page" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/linearRowlogowhiteone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:background="@drawable/rectangle_bg_black_900_radius_25"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:id="@+id/linearColumnlogowhiteone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.16"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageLogowhiteOne"
+                    android:layout_width="@dimen/_19sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_9sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_logowhite1"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_logowhite1" />
+
+                <TextView
+                    android:id="@+id/txtHop"
+                    style="@style/txtIntersemibold10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:singleLine="true"
+                    android:text="@string/lbl_hop"
+                    tools:text="@string/lbl_hop" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearColumnarrowleft"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.21"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageArrowleft"
+                    android:layout_width="@dimen/_19sdp"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:layout_marginEnd="@dimen/_14sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_arrowleft"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_arrowleft" />
+
+                <TextView
+                    android:id="@+id/txtExchange"
+                    style="@style/txtIntersemibold10_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:singleLine="true"
+                    android:text="@string/lbl_exchange"
+                    tools:text="@string/lbl_exchange" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageMetaverseOne"
+                android:layout_width="0"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="0.21"
+                android:scaleType="centerCrop"
+                android:src="@drawable/globe_ic"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:id="@+id/linearColumntrash"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.21"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageTrash"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/_21sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_trash"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_trash" />
+
+                <TextView
+                    android:id="@+id/txtLaunchpads"
+                    style="@style/txtIntersemibold10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:singleLine="true"
+                    android:text="@string/lbl_launchpads"
+                    tools:text="@string/lbl_launchpads" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearColumnmobile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.21"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageMobile"
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="@dimen/_16sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_mobile"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/img_mobile" />
+
+                <TextView
+                    android:id="@+id/txtWallet"
+                    style="@style/txtIntersemibold10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="@string/lbl_wallet"
+                    tools:text="@string/lbl_wallet" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

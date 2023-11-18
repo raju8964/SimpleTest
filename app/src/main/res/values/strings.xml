@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Welcome</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="prompt_phone">Enter your phone</string>
+    <string name="submit">Submit</string>
+    <string name="get_otp">GET OTP</string>
+    <string name="enterotp">Enter OTP</string>
+
+    <string name="add_info">Add Info</string>
+    <string name="firt_name">Firt Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="choose_date">Choose Date</string>
+    <string name="pin_code">Pin Code</string>
+    <string name="sub_title">Lorem ipsum dolor sit amet, concecetuer adispiscing elite, sed do eiusmod tempor inciddunt ut labore</string>
+    <string name="make_your_payment">Make Your Payment</string>
+    <string name="explore_your_products">Explore your Products</string>
+    <string name="enjoy_your_shoping">Enjoy your Shoping</string>
+    <string name="phone_numer_title">Enter the phone number &amp; we will send you an OTP to verify your Phone Number</string>
+    <string name="verify_otp">We have just sent an OTP on your given phone number, and please enter OTP</string>
+    <string name="submits">Submit</string>
+
+    <string name="loading">Loading…</string>
+    <string name="no_internet_connection">No internet connection!</string>
+    <string name="lbl_450_usd">$450 USD</string>
+    <string name="lbl_cardano">Cardano</string>
+    <string name="lbl_filter">Filter</string>
+    <string name="lbl_solana">Solana</string>
+    <string name="lbl_nft">NFT</string>
+    <string name="lbl_cryptocurrency">Cryptocurrency</string>
+    <string name="lbl_binance_coin">Binance Coin</string>
+    <string name="lbl_wallet">Wallet</string>
+    <string name="lbl_xrp">XRP</string>
+    <string name="lbl_1_8">+1.8%</string>
+    <string name="lbl_2_7">-2.7%</string>
+    <string name="lbl_view_all">View All</string>
+    <string name="lbl_55_000_usd">$55,000 USD</string>
+    <string name="lbl_3_2">-3.2%</string>
+    <string name="lbl_4_1">-4.1%</string>
+    <string name="lbl_ethereum">Ethereum</string>
+    <string name="lbl_2_5">+2.5%</string>
+    <string name="msg_top_cryptocurre">Top Cryptocurrencies</string>
+    <string name="lbl_3_800_usd">$3,800 USD</string>
+    <string name="lbl_1_5">+1.5%</string>
+    <string name="lbl_eth">ETH</string>
+    <string name="msg_search_cryptocu">Search Cryptocurrency</string>
+    <string name="lbl_155_usd">$155 USD</string>
+    <string name="lbl_ada">ADA</string>
+    <string name="lbl_1_20_usd">$1.20 USD</string>
+    <string name="lbl_btc">BTC</string>
+    <string name="lbl_exchange">Exchange</string>
+    <string name="lbl_launchpads">Launchpads</string>
+    <string name="lbl_bnb">BNB</string>
+    <string name="lbl_ripple">Ripple</string>
+    <string name="lbl_hop">\u20ac-$hop</string>
+    <string name="lbl_exchanges">Exchanges</string>
+    <string name="lbl_bitcoin">Bitcoin</string>
+    <string name="lbl_sol">SOL</string>
+    <string name="lbl_coming_soon">coming soon...</string>
+    <string name="msg_data_not_found">Data not found!!</string>
+
+
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="appcolor">#06930B</color>
+    <color name="gray">#E8E8E8</color>
+    <color name="bagk">#F1DDDD</color>
+
+    <color name="black_900_4c">#4c0a0a0a</color>
+    <color name="black_900_7f">#7f0b0b0b</color>
+    <color name="black_900_e5">#e5000000</color>
+    <color name="indigo_A200">#627eea</color>
+    <color name="amber_300">#fae24c</color>
+    <color name="black_900_0c">#0c0a0a0a</color>
+    <color name="green_A200">#66f9a1</color>
+    <color name="bluegray_900">#23292f</color>
+    <color name="white_A700_66">#66ffffff</color>
+    <color name="green_A700">#00ce08</color>
+    <color name="black_900_7f1">#7f000000</color>
+    <color name="black_900">#0a0a0a</color>
+    <color name="yellow_700">#f3ba2f</color>
+    <color name="black_901">#000000</color>
+    <color name="green_A700_19">#1900ce08</color>
+    <color name="white_A700">#ffffff</color>
+    <color name="deep_orange_A400">#ff3d00</color>
+
+</resources>
