@@ -13,11 +13,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cord.simpletest.allAdapters.adapters
 import com.cord.simpletest.databinding.ActivityMainBinding
-import com.cord.simpletest.models.Image
 import com.cord.simpletest.repo.MyResponse
 import com.cord.simpletest.ui.model.DataItem
 import com.cord.simpletest.utils.Common
 import com.cord.simpletest.utils.ImageApplication
+import com.cord.simpletest.utils.ShowMessage
 import com.cord.simpletest.viewModel.MainViewModel
 import com.cord.simpletest.viewModel.MainViewModelFactory
 import kotlinx.coroutines.CoroutineScope
@@ -55,49 +55,76 @@ class MainActivity : AppCompatActivity() {
             }
             recyclerMainPage.adapter = adapter
             mainViewModel.postData()
-            mainViewModel.allImage.observe(this@MainActivity) {
-                when (it) {
-                    is MyResponse.Error -> {
-                        dialog?.dismiss()
-                        Log.e("cnakcn", "error ${it.error}")
-                        Toast.makeText(
-                            this@MainActivity,
-                            "Oops! something went wrong. Please try again...",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                    is MyResponse.Success -> {
-                        it.mData?.let {
-                            Log.e("cnakcn", "success ${it}")
-                            try {
-                                it.data!!.filter {it.symbol!="BTC"}.map { adapter!!.updateList(it) }
-                                CoroutineScope(Dispatchers.Main).launch {
-                                    binding.apply {
-                                        it.data.find { it.symbol == "BTC" }.apply {
-                                            txtBTC.setText(this!!.symbol)
-                                            txtPrice.setText(
-                                                "$" + this.quote.usd!!.price.toString()
-                                                    .substringBefore('.') + " USD"
-                                            )
-                                            txtBitcoin.setText(this.name.toString())
-                                            txtTwentyFive.setText(
-                                                this.quote.usd!!.percentChangeD.toString()
-                                                    .substringBefore('.') + "%"
-                                            )
-                                        }
+            obsorvers()
+
+        }
+    }
+
+    private fun obsorvers() {
+        //// getcripto
+        mainViewModel.allCrypto.observe(this@MainActivity) {
+            when (it) {
+                is MyResponse.Error -> {
+                    dialog?.dismiss()
+                    ShowMessage.getInstance().Show(this@MainActivity,
+                        "Oops! something went wrong. Please try again...",500)
+                }
+                is MyResponse.Success -> {
+                    it.mData?.let {
+                        try {
+                            it.data!!.filter {it.symbol!="BTC"}.map { adapter!!.updateList(it) }
+                            CoroutineScope(Dispatchers.Main).launch {
+                                binding.apply {
+                                    it.data.find { it.symbol == "BTC" }.apply {
+                                        txtBTC.setText(this!!.symbol)
+                                        txtPrice.setText(
+                                            "$" + this.quote.usd!!.price.toString()
+                                                .substringBefore('.') + " USD"
+                                        )
+                                        txtBitcoin.setText(this.name.toString())
+                                        txtTwentyFive.setText(
+                                            this.quote.usd!!.percentChangeD.toString()
+                                                .substringBefore('.') + "%"
+                                        )
                                     }
                                 }
-                            } catch (e: Exception) {
                             }
+                        } catch (e: Exception) {
                         }
-                        dialog?.dismiss()
                     }
-                    is MyResponse.Loading -> {
-                        dialog?.show()
-                    }
+                    dialog?.dismiss()
+                }
+                is MyResponse.Loading -> {
+                    dialog?.show()
                 }
             }
         }
+        //// getImages
+        mainViewModel.allImage.observe(this@MainActivity) {
+            when (it) {
+                is MyResponse.Error -> {
+                    dialog?.dismiss()
+                    ShowMessage.getInstance().Show(this@MainActivity,
+                        "Oops! something went wrong. Please try again...",500)
+                }
+                is MyResponse.Success -> {
+                    it.mData?.let {
+                        try {
+                            it.data.values.map {
+                                it.urls
+                            }
+
+                        } catch (e: Exception) {
+                        }
+                    }
+                    dialog?.dismiss()
+                }
+                is MyResponse.Loading -> {
+                    dialog?.show()
+                }
+            }
+        }
+
     }
 
     private fun showPopupMenu(view: View) {

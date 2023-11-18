@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.cord.simpletest.Api.imageDataService
-import com.cord.simpletest.models.Image
+import com.cord.simpletest.ui.model.CryptoImageResponse
 import com.cord.simpletest.ui.model.CryptoResponse
 import java.lang.Exception
 //// --------------------------------------------------------------------
@@ -14,22 +14,41 @@ import java.lang.Exception
 class MainRepo (
     private val quoteService: imageDataService,
     ) {
-    private val imagesLiveData = MutableLiveData<MyResponse<CryptoResponse>>()
-    val images: LiveData<MyResponse<CryptoResponse>>
-        get() = imagesLiveData
+    private val _cryptoLiveData = MutableLiveData<MyResponse<CryptoResponse>>()
+    val crypto: LiveData<MyResponse<CryptoResponse>>
+        get() = _cryptoLiveData
 
-    suspend fun getImage() {
-        imagesLiveData.postValue(MyResponse.Loading())
+    private val _imagesLiveData = MutableLiveData<MyResponse<CryptoImageResponse>>()
+    val images: LiveData<MyResponse<CryptoImageResponse>>
+        get() = _imagesLiveData
+
+    suspend fun getCryptos() {
+        _cryptoLiveData.postValue(MyResponse.Loading())
         try {
             val result = quoteService.getData()
             if (result.body() != null) {
-                imagesLiveData.postValue(MyResponse.Success(result.body()))
+                _cryptoLiveData.postValue(MyResponse.Success(result.body()))
             }else{
-                imagesLiveData.postValue(MyResponse.Error("API Error.."))
+                _cryptoLiveData.postValue(MyResponse.Error("API Error.."))
             }
         }
         catch (e:Exception){
-            imagesLiveData.postValue(MyResponse.Error(e.message.toString()))
+            _cryptoLiveData.postValue(MyResponse.Error(e.message.toString()))
+        }
+    }
+
+    suspend fun getImage(id:Int) {
+        _imagesLiveData.postValue(MyResponse.Loading())
+        try {
+            val result = quoteService.getImage(id)
+            if (result.body() != null) {
+                _imagesLiveData.postValue(MyResponse.Success(result.body()))
+            }else{
+                _imagesLiveData.postValue(MyResponse.Error("API Error.."))
+            }
+        }
+        catch (e:Exception){
+            _imagesLiveData.postValue(MyResponse.Error(e.message.toString()))
         }
     }
 }

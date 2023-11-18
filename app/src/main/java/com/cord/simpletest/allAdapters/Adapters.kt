@@ -3,11 +3,8 @@ package com.cord.simpletest.allAdapters
 import android.app.Activity
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.cord.simpletest.R
-import com.cord.simpletest.databinding.ImageRecyclerUiBinding
 import com.cord.simpletest.databinding.RowMainPageBinding
-import com.cord.simpletest.models.Image
 import com.cord.simpletest.ui.model.DataItem
 
 class adapters(
